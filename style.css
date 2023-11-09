@@ -17,6 +17,20 @@ ul {
   padding: 0;
 }
 
+li {
+  display: grid;
+  gap: 8px;
+  padding: 8px 2px;
+}
+
+input,
+select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 4px 6px;
+}
+
 fieldset {
-  padding: 24px 12px;
+  padding: 32px 18px;
+  background-color: #eeece7;
 }
