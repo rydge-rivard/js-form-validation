@@ -20,22 +20,27 @@
                 <option value="nl">The Netherlands</option>
                 <option value="canada">Canada</option>
               </select>
+              <span class="error" aria-live="polite"></span>
             </li>
             <li>
               <label for="zip">Zip Code*</label>
               <input type="text" name="zip" id="zip" required />
+              <span class="error" aria-live="polite"></span>
             </li>
             <li>
               <label for="email">Email*</label>
               <input type="email" name="email" id="email" required />
+              <span class="error" aria-live="polite"></span>
             </li>
             <li>
               <label for="pwd">Password*</label>
               <input type="password" name="pwd" id="pwd" required />
+              <span class="error" aria-live="polite"></span>
             </li>
             <li>
               <label for="pwd-conf">Password Confirmation*</label>
               <input type="password" name="pwd-conf" id="pwd-conf" required />
+              <span class="error" aria-live="polite"></span>
             </li>
           </ul>
           <button id="confirmBtn" value="default">Submit</button>

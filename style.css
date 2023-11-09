@@ -28,6 +28,8 @@ select {
   box-sizing: border-box;
   width: 100%;
   padding: 4px 6px;
+  border: 1px solid black;
+  border-radius: 2px;
 }
 
 fieldset {
@@ -42,4 +44,11 @@ button {
   color: white;
   padding: 6px 18px;
   margin: 8px 0 0 0;
+}
+
+span.error {
+  color: rgb(192, 0, 0);
+  background-color: rgba(255, 0, 0, 0.063);
+  font-size: 14px;
+  width: fit-content;
 }
