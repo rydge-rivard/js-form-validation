@@ -61,4 +61,32 @@ const formValidation = (function () {
       zipErr.textContent = constraints[selectedCountry][1];
     }
   }
+
+  const pwd = form.querySelector("#pwd");
+  const pwdConfirm = form.querySelector("#pwd-conf");
+  const confirmPwdErr = form.querySelector("#pwd-conf + span.error");
+  const pwdErr = form.querySelector("#pwd + span.error");
+  pwd.addEventListener("input", (event) => {
+    checkPwdLen();
+  });
+
+  pwdConfirm.addEventListener("input", (event) => {
+    checkPwdMatch();
+  });
+
+  function checkPwdMatch() {
+    if (pwd.value === pwdConfirm.value) {
+      confirmPwdErr.textContent = "";
+    } else {
+      confirmPwdErr.textContent = "Passwords do not match.";
+    }
+  }
+
+  function checkPwdLen() {
+    if (pwd.value.length < 8) {
+      pwdErr.textContent = "Passwords must be at least 8 characters.";
+    } else {
+      pwdErr.textContent = "";
+    }
+  }
 })();
