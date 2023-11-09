@@ -1,5 +1,6 @@
 const formValidation = (function () {
   const form = document.querySelector("form");
+  const confirmBtn = form.querySelector("#confirmBtn");
 
   const email = form.querySelector("#email");
   const emailErr = document.querySelector("#email + span.error");
@@ -21,9 +22,13 @@ const formValidation = (function () {
   const countryErr = form.querySelector("#country + span.error");
 
   country.addEventListener("input", (event) => {
-    country.value !== "none"
-      ? (countryErr.textContent = "")
-      : (countryErr.textContent = "Please select a country from the list.");
+    if (country.value !== "none") {
+      countryErr.textContent = "";
+      country.setCustomValidity("");
+    } else {
+      countryErr.textContent = "Please select a country from the list.";
+      country.setCustomValidity("Please select a country from the list.");
+    }
   });
 
   const zip = form.querySelector("#zip");
@@ -36,6 +41,7 @@ const formValidation = (function () {
   function checkZip() {
     if (country.value === "none") {
       zipErr.textContent = "Please select a country from the list above.";
+      zip.setCustomValidity("Please select a country from the list above.");
     } else {
       showZipError();
     }
@@ -57,8 +63,10 @@ const formValidation = (function () {
 
     if (constraint.test(zip.value)) {
       zipErr.textContent = "";
+      zip.setCustomValidity("");
     } else {
       zipErr.textContent = constraints[selectedCountry][1];
+      zip.setCustomValidity(`${constraints[selectedCountry][1]}`);
     }
   }
 
@@ -70,6 +78,10 @@ const formValidation = (function () {
     checkPwdLen();
   });
 
+  pwd.addEventListener("input", (event) => {
+    checkPwdMatch();
+  });
+
   pwdConfirm.addEventListener("input", (event) => {
     checkPwdMatch();
   });
@@ -77,16 +89,34 @@ const formValidation = (function () {
   function checkPwdMatch() {
     if (pwd.value === pwdConfirm.value) {
       confirmPwdErr.textContent = "";
+      pwdConfirm.setCustomValidity("");
     } else {
       confirmPwdErr.textContent = "Passwords do not match.";
+      pwdConfirm.setCustomValidity("Passwords do not match.");
     }
   }
 
   function checkPwdLen() {
     if (pwd.value.length < 8) {
       pwdErr.textContent = "Passwords must be at least 8 characters.";
+      pwd.setCustomValidity("Passwords must be at least 8 characters.");
     } else {
       pwdErr.textContent = "";
+      pwd.setCustomValidity("");
+    }
+  }
+
+  confirmBtn.addEventListener("click", (event) => checkSubmit(event));
+
+  function checkSubmit(event) {
+    checkPwdMatch();
+    checkPwdLen();
+    checkZip();
+    showEmailError();
+    if (form.checkValidity() === true) {
+      console.log("submit");
+    } else {
+      event.preventDefault();
     }
   }
 })();

@@ -52,3 +52,7 @@ span.error {
   font-size: 14px;
   width: fit-content;
 }
+
+input:invalid {
+  background-color: red;
+}
