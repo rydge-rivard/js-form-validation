@@ -114,7 +114,7 @@ const formValidation = (function () {
     checkZip();
     showEmailError();
     if (form.checkValidity() === true) {
-      console.log("submit");
+      alert("HIGHFIVE, you filled in the form correctly.");
     } else {
       event.preventDefault();
     }
