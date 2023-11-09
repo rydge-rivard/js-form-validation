@@ -34,3 +34,12 @@ fieldset {
   padding: 32px 18px;
   background-color: #eeece7;
 }
+
+button {
+  border-radius: 18px;
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 6px 18px;
+  margin: 8px 0 0 0;
+}

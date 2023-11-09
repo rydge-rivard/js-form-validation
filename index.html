@@ -14,30 +14,31 @@
           <legend>JS Form Testing</legend>
           <ul>
             <li>
-              <label for="country">Country</label>
-              <select name="country" id="country">
+              <label for="country">Country*</label>
+              <select name="country" id="country" required>
                 <option value="">--</option>
                 <option value="nl">The Netherlands</option>
                 <option value="canada">Canada</option>
               </select>
             </li>
             <li>
-              <label for="zip">Zip Code </label>
-              <input type="text" name="zip" id="zip" />
+              <label for="zip">Zip Code*</label>
+              <input type="text" name="zip" id="zip" required />
             </li>
             <li>
-              <label for="email">Email</label>
-              <input type="email" name="email" id="email" />
+              <label for="email">Email*</label>
+              <input type="email" name="email" id="email" required />
             </li>
             <li>
-              <label for="pwd">Password</label>
-              <input type="password" name="pwd" id="pwd" />
+              <label for="pwd">Password*</label>
+              <input type="password" name="pwd" id="pwd" required />
             </li>
             <li>
-              <label for="pwd-conf">Password Confirmation</label>
-              <input type="password" name="pwd-conf" id="pwd-conf" />
+              <label for="pwd-conf">Password Confirmation*</label>
+              <input type="password" name="pwd-conf" id="pwd-conf" required />
             </li>
           </ul>
+          <button id="confirmBtn" value="default">Submit</button>
         </fieldset>
       </form>
     </div>
