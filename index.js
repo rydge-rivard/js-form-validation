@@ -39,27 +39,26 @@ const formValidation = (function () {
     } else {
       showZipError();
     }
+  }
 
-    function showZipError() {
-      const constraints = {
-        ca: [
-          "^(CA-)?\\w\\d\\w\\d\\w\\d$",
-          "Canadian ZIPs must have 3 letters and 3 digits in an alternating order: ex. N3Y4K1",
-        ],
-        nl: [
-          "^(NL-)?\\d{4}\\w{2}$",
-          "Dutch ZIPs must have 4 digits, followed by 2 letters: ex. 3581MS",
-        ],
-      };
-      const selectedCountry = country.value;
-      const constraint = new RegExp(constraints[selectedCountry][0], "");
+  function showZipError() {
+    const constraints = {
+      ca: [
+        "^(CA-)?\\w\\d\\w\\d\\w\\d$",
+        "Canadian ZIPs must have 3 letters and 3 digits in an alternating order: ex. N3Y4K1",
+      ],
+      nl: [
+        "^(NL-)?\\d{4}\\w{2}$",
+        "Dutch ZIPs must have 4 digits, followed by 2 letters: ex. 3581MS",
+      ],
+    };
+    const selectedCountry = country.value;
+    const constraint = new RegExp(constraints[selectedCountry][0], "");
 
-      if (constraint.test(zip.value)) {
-        console.log("match");
-        zipErr.textContent = "";
-      } else {
-        zipErr.textContent = constraints[selectedCountry][1];
-      }
+    if (constraint.test(zip.value)) {
+      zipErr.textContent = "";
+    } else {
+      zipErr.textContent = constraints[selectedCountry][1];
     }
   }
 })();
